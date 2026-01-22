@@ -1,18 +1,18 @@
 // POINT useMemoで値をメモ化
-import React, { useCallback, useState } from "react";
-import Child from "./Child";
-import "./Example.css";
+import React, { useCallback, useState } from 'react';
+import Child from './Child';
+import './Example.css';
 
 const Example = () => {
-  console.log("Parent render");
+  console.log('Parent render');
   const [countA, setCountA] = useState(0);
   const [countB, setCountB] = useState(0);
 
   const clickHandler = useCallback(() => {
     console.log('countB', countB);
     setCountB(countB + 1);
-  },[countB]);
-  
+  }, [countB]);
+
   return (
     <div className="parent">
       <div>
@@ -31,7 +31,7 @@ const Example = () => {
       <div>
         <p>ボタンAクリック回数：{countA}</p>
       </div>
-      <Child countB={countB} onClick={clickHandler}/>
+      <Child countB={countB} onClick={clickHandler} />
     </div>
   );
 };

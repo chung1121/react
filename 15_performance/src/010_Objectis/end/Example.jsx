@@ -1,30 +1,29 @@
 // POINT Reactでの差分検知
-import { useState } from "react";
-import "./Example.css";
+import { useState } from 'react';
+import './Example.css';
 
 const Example = () => {
-  console.log("render");
-  
+  console.log('render');
+
   const [countA, setCountA] = useState({
-    val: 0
+    val: 0,
   });
 
-  const obj1 = {val:0};
-  const obj3 = {val:0};
-  const obj2 = { ...obj1};
-  const isSame = Object.is("",false);
-  const isSameEqual = "" == false;
-  console.log(isSameEqual);
-  
+  const obj1 = { val: 0 };
+  const obj3 = { val: 0 };
+  const obj2 = { ...obj1 };
+  const isSame = Object.is(obj1, obj2);
+  console.log(isSame);
+
   return (
     <div className="parent">
       <div>
         <h3>再レンダリング？</h3>
         <button
           onClick={() => {
-            setCountA(prev => {
+            setCountA((prev) => {
               const newState = { ...prev };
-              // prev.val = 1;
+              prev.val = 1;
               return newState;
             });
           }}
