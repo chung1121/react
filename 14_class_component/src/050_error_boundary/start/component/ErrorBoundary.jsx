@@ -1,4 +1,4 @@
-import { Component } from "react";
+import { Component } from 'react';
 
 class ErrorBoundary extends Component {
   constructor(props) {
@@ -6,12 +6,16 @@ class ErrorBoundary extends Component {
     this.state = { error: null, errorInfo: null };
   }
 
-  static getDerivedStateFromError(error){
-    // 副作用の記述NG
-  }
-  
+  //static getDerivedStateFromError(error){
+  // 副作用の記述NG
+  //}
+
   componentDidCatch(error, errorInfo) {
     // 副作用の記述OK
+    this.setState({
+      error: error,
+      errorInfo: errorInfo,
+    });
   }
 
   render() {
@@ -19,7 +23,7 @@ class ErrorBoundary extends Component {
       return (
         <div>
           <h3>エラー発生</h3>
-          <details style={{ whiteSpace: "pre-wrap" }}>
+          <details style={{ whiteSpace: 'pre-wrap' }}>
             {this.state.error && this.state.error.toString()}
             <br />
             {this.state.errorInfo.componentStack}
