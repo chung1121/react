@@ -12,6 +12,7 @@ export async function POST(request) {
   const id = formData.get('id');
   const title = formData.get('title');
 
+
   if(id === '' || title === '') {
     return Response.json({ msg: '入力フィールドが空です。' }, { status: 500 })
   }

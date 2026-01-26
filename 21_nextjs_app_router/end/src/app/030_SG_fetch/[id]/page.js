@@ -13,16 +13,14 @@ export async function generateMetadata({ params }) {
 
 export async function generateStaticParams() {
   const data = await fetch(ENDPOINT).then((res) => res.json());
-  return data.map((record) => ({ id: record.id }));
+  return data.map((record) => ({
+    id: record.id.toString(),
+  }));
 }
 
 export default async function Detail({ params }) {
   const article = await fetch(`${ENDPOINT}/${params.id}`).then((res) =>
     res.json()
   );
-  return (
-    <>
-      <Article data={article} />
-    </>
-  );
+  return <Article data={article} />;
 }

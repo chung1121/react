@@ -9,7 +9,7 @@ const Example = () => {
 
   let num: number = 102;
   console.log(num);
-  
+
   let bignum: bigint = 103n;
   console.log(bignum);
 

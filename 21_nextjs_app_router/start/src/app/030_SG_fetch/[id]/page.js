@@ -1,13 +1,19 @@
-import { ENDPOINT } from "@/constants";
-import Article from "../../../components/article";
+import { ENDPOINT } from '@/constants';
+import Article from '@/components/article';
+
+export async function generateStaticParams() {
+  const res = await fetch(ENDPOINT);
+  const data = await res.json();
+
+  return data.map((record) => ({
+    id: record.id.toString(),
+  }));
+}
 
 export default async function Detail({ params }) {
   const article = await fetch(`${ENDPOINT}/${params.id}`).then((res) =>
     res.json()
   );
-  return (
-    <>
-      <Article data={article} />
-    </>
-  );
+
+  return <Article data={article} />;
 }
