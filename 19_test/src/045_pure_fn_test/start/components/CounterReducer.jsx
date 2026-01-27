@@ -1,22 +1,25 @@
-import { useReducer } from "react";
-import { counterReducer } from "../reducer/counterReducer"
+import { useReducer } from 'react';
+import { counterReducer } from '../reducer/counterReducer';
 
 const Counter = (props) => {
-  const [state, dispatch] = useReducer(counterReducer, { count: props.originCount, step: 1 });
+  const [state, dispatch] = useReducer(counterReducer, {
+    count: props.originCount,
+    step: 1,
+  });
   const countUp = () => {
-    dispatch({ type: "up" });
+    dispatch({ type: 'up' });
   };
 
   const countDown = () => {
-    dispatch({ type: "down" });
+    dispatch({ type: 'down' });
   };
 
   const countClear = () => {
-    dispatch({ type: "clear" });
+    dispatch({ type: 'clear' });
   };
 
   const changeStep = (e) =>
-    dispatch({ type: "changeStep", payload: e.target.value });
+    dispatch({ type: 'changeStep', payload: e.target.value });
 
   return (
     <div>

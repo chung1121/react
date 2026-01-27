@@ -1,6 +1,7 @@
 import Hello from './Hello';
 
 const Hello: React.FC = () => {
-  return <h1>Hello TypeScript</h1>;
+  return <Hello />;
 };
+
 export default Hello;

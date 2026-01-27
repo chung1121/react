@@ -1,5 +1,7 @@
-const Example = () => {
-    // 練習
+import Hello from './Hello';
+
+const Example: React.FC = () => {
+  return <Hello TypeScript />;
 };
 
 export default Example;

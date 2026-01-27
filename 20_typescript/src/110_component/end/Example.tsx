@@ -1,8 +1,8 @@
 // POINT TypeScriptでReactコンポーネントを作成しよう
-import Hello from "./Hello";
+import Hello from './Hello';
 
 const Example: React.FC = () => {
-  return <Hello />
+  return <Hello TypeScript />;
 };
 
 export default Example;
